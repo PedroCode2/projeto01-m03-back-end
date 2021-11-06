@@ -1,0 +1,28 @@
+{
+  "name": "projeto01-m03-back-end",
+  "version": "1.0.0",
+  "description": "repositório para o back-end do primeiro projeto do m03 full stack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PedroCod/projeto01-m03-back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PedroCod/projeto01-m03-back-end/issues"
+  },
+  "homepage": "https://github.com/PedroCod/projeto01-m03-back-end#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
