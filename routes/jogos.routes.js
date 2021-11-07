@@ -7,8 +7,8 @@ const jogos = [
         nome: 'Mortal Kombat',
         imagem: 'https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MortalKombat11_image1600w.jpg',
         genero: 'Luta',
-        nota: '8',
-        jogado: false,    
+        nota: '8',  
+        jogado: false,
     },
     {
         id: 2,
@@ -16,15 +16,15 @@ const jogos = [
         imagem: 'https://upload.wikimedia.org/wikipedia/pt/7/7e/Dragon_Ball_Z_Budokai_Tenkaichi.jpg',
         genero: 'Luta e Ação',
         nota: '10',
-        jogado: false,    
+        jogado: false,  
     },
     {
         id: 3,
         nome: 'Dragon ball Xenoverse 2',
         imagem: 'https://4.bp.blogspot.com/-AoXmuGTxDHg/WCRTLYH0mpI/AAAAAAAAL50/3CiP9i94tLsDQBbdRFSM4p5FpR60EN6WwCEw/s1600/Xenoverse%2B2.jpg',
         genero: 'Luta',
-        nota: '8',
-        jogado: false,    
+        nota: '8', 
+        jogado: false,
     },
 ]
 
@@ -62,7 +62,7 @@ router.post('/add', (req, res) => {
     jogo.id = jogos[jogos.length -1].id + 1;
     jogos.push(jogo);
     res.status(201).send({
-        message: `Jogo ${jogo.nome}`,
+        message: `Jogo ${jogo.nome} Foi Cadastrado com Sucesso!!`,
         data: jogos
     });
 })
@@ -107,6 +107,19 @@ router.delete('/delete/:id', (req, res) => {
         message: `Jogo ${nome.nome} excluida com sucesso !`,
     })
 })
+
+router.put('/:status/:id',(req,res) =>{
+    const idParam = req.params.id;
+    const okParams = req.params.status;
+    let okParamsBolean = (okParams == 'true'); 
+    let index = jogos.findIndex(jogo => jogo.id == idParam);
+    jogos[index].jogado = okParamsBolean;
+    const statusEditado = jogos[index];    
+    res.send({
+        statusEditado
+    })
+        
+});
 
 
 module.exports = router;
